@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Homepage</title>
+    <style>
+        :root {
+            /* これまで作成したアプリと統一感を持たせた配色です */
+            --main-bg: #f5f5f7;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --accent: #007aff;
+            --border-color: #d1d1d6;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: var(--main-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        /* ページ全体をまとめる白いカード領域 */
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background: var(--card-bg);
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+        }
+        
+        @media (max-width: 600px) {
+            .container { padding: 30px 20px; }
+        }
+
+        /* 見出しのデザイン */
+        h1 {
+            font-size: 2.2em;
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #111;
+        }
+        
+        h2 {
+            font-size: 1.4em;
+            margin-top: 40px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 8px;
+            color: #222;
+        }
+
+        .affiliation {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .contact-info p {
+            margin: 8px 0;
+            color: #444;
+        }
+
+        /* 略歴テーブル */
+        table.bio-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table.bio-table th, table.bio-table td {
+            padding: 12px 5px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+            vertical-align: top;
+        }
+        table.bio-table th {
+            width: 130px;
+            color: #555;
+            font-weight: normal;
+        }
+
+        /* 写真セクション */
+        .photo-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .photo-section img {
+            max-width: 250px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* プレースホルダー（仮の写真枠） */
+        .photo-placeholder {
+            width: 250px;
+            height: 250px;
+            background: #eee;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            color: #888;
+            border: 2px dashed #ccc;
+            margin: 0 auto;
+        }
+
+        /* リンクボタン */
+        .links-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .app-link {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .app-link:hover {
+            background-color: #005bb5;
+            transform: translateY(-2px);
+        }
+        .app-link.memo {
+            background-color: #34c759; /* メモ帳は緑色でアクセント */
+        }
+        .app-link.memo:hover {
+            background-color: #248a3d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <h1>北大 太郎 (Taro Hokudai)</h1>
+        
+        <div class="affiliation">
+            北海道大学 大学院 〇〇研究科<br>
+            〇〇研究室
+        </div>
+        
+        <div class="contact-info">
+            <p>📧 <strong>Email:</strong> your.email@example.com</p>
+            <p>📍 <strong>Address:</strong> 〒000-0000 北海道札幌市北区〇〇 〇号館 〇室</p>
+        </div>
+        
+        <h2>略歴 (Biography)</h2>
+        <table class="bio-table">
+            <tr>
+                <th>202X年 3月</th>
+                <td>〇〇大学 〇〇学部 卒業</td>
+            </tr>
+            <tr>
+                <th>202X年 4月</th>
+                <td>北海道大学 大学院 〇〇研究科 修士課程 入学</td>
+            </tr>
+            <tr>
+                <th>現在</th>
+                <td>同上 在学中</td>
+            </tr>
+        </table>
+        
+        <h2>プロフィール</h2>
+        <div class="photo-section">
+            <div class="photo-placeholder">ここに写真が入ります</div>
+            
+            </div>
+        
+        <h2>プライベートツール（関係者用）</h2>
+        <div class="links-section">
+            <a href="https://Ayataka0901.github.io/my-todo/" class="app-link" target="_blank">✅ ToDo</a>
+            <a href="https://Ayataka0901.github.io/my-memo/" class="app-link memo" target="_blank">📝 Memo</a>
+        </div>
+        
+    </div>
+</body>
+</html>
