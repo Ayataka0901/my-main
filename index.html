@@ -6,7 +6,6 @@
     <title>加藤のホームページ</title>
     <style>
         :root {
-            /* これまで作成したアプリと統一感を持たせた配色です */
             --main-bg: #f5f5f7;
             --card-bg: #ffffff;
             --text-color: #333;
@@ -21,19 +20,26 @@
             line-height: 1.6;
             margin: 0;
             padding: 40px 20px;
-            display: flex;
-            justify-content: center;
         }
         
-        /* ページ全体をまとめる白いカード領域 */
-        .container {
+        /* ページ全体の中央揃えと、各ブロックの隙間を管理する透明な枠 */
+        .page-wrapper {
             max-width: 700px;
-            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* 白い枠同士の隙間 */
+            padding-bottom: 60px; /* 右下の固定ボタンと被らないための余白 */
+        }
+
+        /* 白いカード領域（名前ブロック、略歴ブロック） */
+        .container {
             background: var(--card-bg);
             padding: 40px 50px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             box-sizing: border-box;
+            width: 100%;
         }
         
         @media (max-width: 600px) {
@@ -50,7 +56,7 @@
         
         h2 {
             font-size: 1.4em;
-            margin-top: 40px;
+            margin-top: 0; /* コンテナの先頭に来るためマージンを0に */
             border-bottom: 2px solid var(--accent);
             padding-bottom: 8px;
             color: #222;
@@ -86,11 +92,20 @@
             font-weight: normal;
         }
 
-        /* 写真セクション */
+        /* 写真セクション（白い枠の外） */
         .photo-section {
             text-align: center;
-            margin: 30px 0;
+            width: 100%;
+            /* 他の白いカードと見出しの左端を揃えるための余白調整 */
+            padding: 0 10px; 
+            box-sizing: border-box;
         }
+        
+        .photo-section h2 {
+            text-align: left; /* 見出しを左揃えにする */
+            margin-bottom: 30px;
+        }
+
         .photo-section img {
             max-width: 250px;
             width: 100%;
@@ -103,30 +118,31 @@
         .photo-placeholder {
             width: 250px;
             height: 250px;
-            background: #eee;
+            background: #e5e5ea; /* 背景により馴染む少し濃いグレーに */
             display: inline-flex;
             align-items: center;
             justify-content: center;
             border-radius: 8px;
-            color: #888;
-            border: 2px dashed #ccc;
+            color: #666;
+            border: 2px dashed #bbb;
             margin: 0 auto;
+            text-align: center;
+            line-height: 1.8;
         }
 
-        /* --- ここから：右下のプライベートリンク用 --- */
+        /* プライベートリンク用 */
         .private-links {
-            position: fixed; /* 画面に対して位置を固定 */
-            bottom: 15px;    /* 下から15px */
-            right: 15px;     /* 右から15px */
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
             display: flex;
             flex-direction: column;
             gap: 8px;
-            opacity: 0.3;    /* 普段は半透明にして目立たなくする */
+            opacity: 0.3;
             transition: opacity 0.3s ease;
             z-index: 100;
         }
 
-        /* マウスを乗せたときはハッキリ見えるようにする */
         .private-links:hover {
             opacity: 1;
         }
@@ -154,58 +170,59 @@
 </head>
     
 <body>
-    <div class="container">
+    <div class="page-wrapper">
         
-        <h1>加藤 巧真 (Takuma Kato)</h1>
-        
-        <div class="affiliation">
-            北海道大学大学院 理学院 数学専攻<br>
-            修士課程 長山雅晴研究室
-        </div>
-        
-        <div class="contact-info">
-            <p>📧 <strong>Email:</strong> kato.takuma.0523@gmail.com</p>
-            <p>📍 <strong>Address:</strong> 〒060-0808 北海道札幌市北区北8条西5丁目<br>
-                総合科学研究棟2号館 5階</p>
+        <div class="container">
+            <h1>加藤 巧真 (Takuma Kato)</h1>
+            
+            <div class="affiliation">
+                北海道大学大学院 理学院 数学専攻<br>
+                修士課程 長山雅晴研究室
+            </div>
+            
+            <div class="contact-info">
+                <p>📧 <strong>Email:</strong> kato.takuma.0523@gmail.com</p>
+                <p>📍 <strong>Address:</strong> 〒060-0808 北海道札幌市北区北8条西5丁目<br>
+                    総合科学研究棟2号館 5階</p>
+            </div>
         </div>
 
+        <div class="container">
+            <h2>略歴 (Biography)</h2>
+            <table class="bio-table">
+                <tr>
+                    <th>2018年 4月</th>
+                    <td>宮城県仙台第一高等学校 普通科 入学</td> </tr>
+                <tr>
+                    <th>2021年 3月</th>
+                    <td>宮城県仙台第一高等学校 普通科 卒業</td>
+                </tr>
+                <tr>
+                    <th>2021年 4月</th>
+                    <td>岩手大学 理工学部 物理材料理工学科 数理・物理コース 入学</td>
+                </tr>
+                <tr>
+                    <th>2025年 3月</th>
+                    <td>岩手大学 理工学部 物理材料理工学科 数理・物理コース 卒業</td>
+                </tr>
+                <tr>
+                    <th>2025年 4月</th>
+                    <td>北海道大学大学院 理学院 数学専攻 修士課程 入院</td> </tr>
+                <tr>
+                    <th>現在</th>
+                    <td>同上 在学中</td>
+                </tr>
+            </table>
+        </div>
         
-        <h2>略歴 (Biography)</h2>
-        <table class="bio-table">
-            <tr>
-                <th>2018年 4月</th>
-                <td>宮城県仙台第一高等学校大学 普通科 入学</td>
-            </tr>
-            <tr>
-                <th>2021年 3月</th>
-                <td>宮城県仙台第一高等学校大学 普通科 卒業</td>
-            </tr>
-            <tr>
-                <th>2021年 4月</th>
-                <td>岩手大学 理工学部 物理材料理工学科 数理・物理コース 入学</td>
-            </tr>
-            <tr>
-                <th>2025年 3月</th>
-                <td>岩手大学 理工学部 物理材料理工学科 数理・物理コース 卒業</td>
-            </tr>
-            <tr>
-                <th>2025年 4月</th>
-                <td>北海道大学大学院 理学院 数学専攻 修士課程 入院</td>
-            </tr>
-            <tr>
-                <th>現在</th>
-                <td>同上 在学中</td>
-            </tr>
-        </table>
-    
-        
-        <h2>写真です</h2>
         <div class="photo-section">
+            <h2>写真です</h2>
             <div class="photo-placeholder">
                 いつかここに<br>
                 何かしらの写真が入ります(予定)
             </div>    
         </div>
+
     </div>
     
     <div class="private-links">
